@@ -1,13 +1,10 @@
 import './search-wrapper.css';
 import { InputText } from 'primereact/inputtext';
-import { createContext, useState } from 'react';
+import {  useState } from 'react';
 import { Button } from 'primereact/button';
-import axios from 'axios';
 import BooksViewComponent from '../Books-View/books-view';
 import { ProgressSpinner } from 'primereact/progressspinner';
-
-const baseURL = "https://openlibrary.org/search.json?q=";
-
+import BooksService from '../../Services/books.service';
 
 function SearchWrapperComponent() {
     const [searchInput, setSearchInput] = useState('');
@@ -16,7 +13,7 @@ function SearchWrapperComponent() {
     function searchbooks() {
         console.log(searchInput);
         setLoading(true);
-        axios.get(baseURL + searchInput).then((response) => {
+        BooksService.getBooks(searchInput).then((response) => {
             setBooks(response.data.docs);
             setLoading(false);
           });

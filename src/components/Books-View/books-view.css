@@ -1,0 +1,37 @@
+.books-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 15%;
+  background-color: #d2cfcf;
+  margin: 2px;
+  height: 200px;
+  cursor: pointer;
+  padding: 5px;
+  background-repeat: no-repeat;
+  background: center;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  mix-blend-mode: difference;
+  color: gray;
+}
+
+.author {
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

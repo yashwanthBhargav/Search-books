@@ -1,4 +1,5 @@
 import { Dialog } from 'primereact/dialog';
+import "./book-details.css"
 
 function BookDetails({selected, visible, setVisible}: any) {
     return (

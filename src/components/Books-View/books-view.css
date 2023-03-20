@@ -35,15 +35,3 @@
   line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-
-.info {
-  display: flex;
-}
-
-.label {
-  padding-right: 8px;
-}
-
-.value {
-  font-size: 18px;
-}

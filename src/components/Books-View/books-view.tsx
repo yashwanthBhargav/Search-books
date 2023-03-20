@@ -14,20 +14,14 @@ function BooksViewComponent(props:any) {
     
     return (
         <div className="p-grid p-mt-2 books-grid">
-                        {   !props.books || props.books.length <1 ? 
-                            <a>Enter name in the search bar to view the relevant books</a> :
-                            props.books.map((col: any) =>{
-                                return (
-                                    <div>
-                                        <a className='search-label'>Showing results for: {props.keyword}</a>
-                                        <BookComponent book={col} view={openBookView}/>
-                                    </div>
-                                    )
-                                }
-                            )
-                        }
-                    <BookDetails selected={selected} visible={visible} setVisible={setVisible}/>
-                    
+            {
+                props.books.map((col: any) =>{
+                    return (
+                        <BookComponent book={col} view={openBookView}/>
+                        )
+                })
+            }
+            <BookDetails selected={selected} visible={visible} setVisible={setVisible}/>
         </div>);
 }
 

@@ -8,15 +8,19 @@ import BooksService from '../../Services/books.service';
 
 function SearchWrapperComponent() {
     const [searchInput, setSearchInput] = useState('');
+    const [keyword, setkeyword] = useState('');
     const [books, setBooks] = useState([]);
     const [loading, setLoading] =useState(false);
     function searchbooks() {
-        console.log(searchInput);
-        setLoading(true);
-        BooksService.getBooks(searchInput).then((response) => {
-            setBooks(response.data.docs);
-            setLoading(false);
-          });
+        if (searchInput != "") {
+            console.log(searchInput);
+            setLoading(true);
+            BooksService.getBooks(searchInput).then((response) => {
+                setkeyword(searchInput);
+                setBooks(response.data.docs);
+                setLoading(false);
+            });
+        }
     };
 
     return (
@@ -25,12 +29,18 @@ function SearchWrapperComponent() {
                 <p>Search Books</p>
                 <div>
                     <InputText id="username" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} placeholder="Search" />
-                    <Button icon="pi pi-search"  onClick={searchbooks} />
+                    <Button disabled={searchInput == ""} icon="pi pi-search"  onClick={searchbooks} />
                 </div>
             </header>
             {loading ? <div><ProgressSpinner /> </div> : 
             <div>
-                <BooksViewComponent books={books} keyword={searchInput} />
+                {!books || books.length <1 ? 
+                            <a>No results found {!keyword || keyword != "" ? "for: " + keyword : ""}</a> :
+                <div>
+                    <a className='search-label'>Showing results for: {searchInput}</a>
+                    <BooksViewComponent books={books} keyword={searchInput} />
+                </div>
+                }
             </div>}
         </div>
     );

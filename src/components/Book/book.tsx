@@ -3,17 +3,18 @@ import { Image } from 'primereact/image';
 import "./book.css"
  
 function BookComponent(props: any) {
+    console.log(props);
     
     function getCover(id: any) {
-        return "https://covers.openlibrary.org/b/id/"+id+"-M.jpg";
+        return "https://covers.openlibrary.org/b/id/"+id+"-L.jpg";
     }
     const header = (
-        <Image className="image" src={getCover(props.book.cover_i)} alt="Image Text" />
+        <Image onClick={($event) => $event.preventDefault()} className="image" src={getCover(props.book.cover_i)} height="200px" alt="Image Text" />
     );
 
     return (
-            <Card title={props.book.title} className="card" header={header}>
-                <p className="m-0" style={{lineHeight: '1.5'}}>{props.book.author_name}</p>
+            <Card title={props.book.title} className=" p-col card" header={header} onClick={() => props.view(props.book)}>
+                <p className="author" style={{lineHeight: '1.5'}}>{props.book.author_name}</p>
             </Card>
     )
 }

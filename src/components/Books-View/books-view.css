@@ -8,7 +8,7 @@
   width: 15%;
   background-color: #d2cfcf;
   margin: 2px;
-  height: 200px;
+  height: 400px;
   cursor: pointer;
   padding: 5px;
   background-repeat: no-repeat;
@@ -34,4 +34,16 @@
   -webkit-line-clamp: 1;
   line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+.info {
+  display: flex;
+}
+
+.label {
+  padding-right: 8px;
+}
+
+.value {
+  font-size: 18px;
 }

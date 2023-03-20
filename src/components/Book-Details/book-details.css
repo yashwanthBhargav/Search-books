@@ -1,0 +1,12 @@
+
+.info {
+    display: flex;
+  }
+  
+  .label {
+    padding-right: 8px;
+  }
+  
+  .value {
+    font-size: 18px;
+  }

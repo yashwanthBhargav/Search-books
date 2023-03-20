@@ -31,7 +31,11 @@ function SearchWrapperComponent() {
                     <Button icon="pi pi-search"  onClick={searchbooks} />
                 </div>
             </header>
-            {loading ? <div><ProgressSpinner /> </div> : <BooksViewComponent books={books} />}
+            {loading ? <div><ProgressSpinner /> </div> : 
+            <div>
+                <a className='search-label'>Showing results for: {searchInput}</a>
+                <BooksViewComponent books={books} />
+            </div>}
         </div>
     );
 }

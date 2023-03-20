@@ -18,7 +18,10 @@ function BooksViewComponent(props:any) {
                             <a>Enter name in the search bar to view the relevant books</a> :
                             props.books.map((col: any) =>{
                                 return (
-                                    <BookComponent book={col} view={openBookView}/>
+                                    <div>
+                                        <a className='search-label'>Showing results for: {props.keyword}</a>
+                                        <BookComponent book={col} view={openBookView}/>
+                                    </div>
                                     )
                                 }
                             )

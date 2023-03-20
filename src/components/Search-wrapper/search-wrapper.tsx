@@ -30,8 +30,7 @@ function SearchWrapperComponent() {
             </header>
             {loading ? <div><ProgressSpinner /> </div> : 
             <div>
-                <a className='search-label'>Showing results for: {searchInput}</a>
-                <BooksViewComponent books={books} />
+                <BooksViewComponent books={books} keyword={searchInput} />
             </div>}
         </div>
     );
